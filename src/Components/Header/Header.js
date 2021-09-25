@@ -3,13 +3,11 @@ import logo from '../../images/logo.png';
 import './Header.css';
 
 
-const Header = () => {
+const Header = (props) => {
+
     return (
-        // <div className='text-center'>
-        //     <img src={logo} alt="" className='header-img' />
-        // </div>
         <div>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-danger">
+            <nav className="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
                 <div className="container">
                     <a className="navbar-brand" href="/"> <img src={logo} alt="" className='' width='130px' /></a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,7 +26,7 @@ const Header = () => {
                             </li>
                         </ul>
                         <form className="d-flex ms-3">
-                            <input className="form-control me-2 input-design" type="search" placeholder="Search Products" aria-label="Search" />
+                            <input className="form-control me-2 input-design" type="search" placeholder="Search Products" aria-label="Search" onChange={props.eventHandler} />
                             {/* <button className="btn btn-outline-success" type="submit">Search</button> */}
                         </form>
                     </div>

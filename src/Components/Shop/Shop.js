@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { addToDb, getDataFromDb } from '../../dB';
 import Cart from '../Cart/Cart';
+import Header from '../Header/Header';
 import Product from '../Product/Product';
 
 const Shop = () => {
     const [product, setProduct] = useState([]);
     const [cart, setCart] = useState([]);
+    const [filteredProduct, setFilteredProduct] = useState([]);
     useEffect(() => {
         fetch('./Products.JSON')
             .then(resp => resp.json())
-            .then(json => setProduct(json))
+            .then(json => {
+                setProduct(json);
+                setFilteredProduct(json);
+            })
     }, []);
     useEffect(() => {
         if (product.length) {
@@ -26,9 +31,8 @@ const Shop = () => {
         }
     }, [product])
     function addToCart(prod) {
+        // console.log('prod--', prod);
         const newArr = [];
-        //const arr = [...cart]
-        //console.log('arr', arr);
         let flag = 0;
         for (const iterator of cart) {
             if (iterator.key === prod.key) {
@@ -37,6 +41,7 @@ const Shop = () => {
             }
             newArr.push(iterator);
         }
+        //flag=0 means the product is new product to cart
         if (flag === 0) {
             prod.count = 1
             newArr.push(prod);
@@ -45,19 +50,30 @@ const Shop = () => {
         setCart(newArr);
         addToDb(prod.key);
     }
+    function searchProduct(event) {
+        const pattern = event.target.value.trim().toLowerCase();
+        //console.log(pattern)
+        const filteredResult = product.filter(x => x.name.toLowerCase().includes(pattern)
+            // if (x.name.toLowerCase().includes(pattern)) {
+            //     return x;
+            // }
+
+        );
+        console.log(filteredResult.length);
+        setFilteredProduct(filteredResult);
+    }
 
     return (
         <div>
-            <div className='row justify-content-center g-0'>
+            <Header eventHandler={searchProduct}></Header>
+            <div className='row justify-content-center g-0 mt-5 pt-3'>
                 <div className='col col-lg-8 border-end ps-5'>
-                    {product.map(x => <Product data={x} key={x.key} eventHandler={addToCart} ></Product>)}
+                    {filteredProduct.map(x => <Product data={x} key={x.key} eventHandler={addToCart} ></Product>)}
                 </div>
                 <div className='col col-lg-3 mx-auto mt-4'>
                     <Cart data={cart} ></Cart>
                 </div>
-
             </div>
-
         </div>
     );
 };

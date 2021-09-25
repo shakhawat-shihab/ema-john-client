@@ -41,8 +41,8 @@ const Cart = (props) => {
                         <td><h6 className='align-right'>{tax.toFixed(2)}</h6></td>
                     </tr>
                     <tr className='border-bottom'>
-                        <td><h5 className='fw-bold text-warning'>Total </h5></td>
-                        <td><h5 className='fw-bold text-warning align-right'>{total.toFixed(2)}</h5></td>
+                        <td><h5 className='fw-bold text-success'>Total </h5></td>
+                        <td><h5 className='fw-bold text-success align-right'>{total.toFixed(2)}</h5></td>
                     </tr>
                 </tbody>
                 <tfoot></tfoot>
