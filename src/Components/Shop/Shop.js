@@ -31,7 +31,7 @@ const Shop = () => {
         }
     }, [product])
     function addToCart(prod) {
-        console.log('prod--', prod);
+        //console.log('prod--', prod);
         let newArr = []
         const index = cart.indexOf(prod);
         if (index === -1) {
@@ -42,7 +42,7 @@ const Shop = () => {
             cart[index].count += 1;
             newArr = [...cart];
         }
-        console.log('new--- ', newArr);
+        //console.log('new--- ', newArr);
         setCart(newArr);
         addToDb(prod.key);
     }

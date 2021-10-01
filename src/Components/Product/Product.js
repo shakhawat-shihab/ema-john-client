@@ -29,9 +29,6 @@ const Product = (props) => {
                     </button>
                 </div>
             </div>
-
-
-
         </div>
     );
 };
