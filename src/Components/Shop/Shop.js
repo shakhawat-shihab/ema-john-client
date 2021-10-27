@@ -81,7 +81,7 @@ const Shop = () => {
         //console.log(pattern)
         const filteredResult = product.filter(x => x.name.toLowerCase().includes(pattern)
         );
-        console.log(filteredResult.length);
+        // console.log(filteredResult.length);
         setFilteredProduct(filteredResult);
     }
 
