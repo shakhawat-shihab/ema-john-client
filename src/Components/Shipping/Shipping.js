@@ -13,7 +13,7 @@ const Shipping = () => {
         const userCart = getDataFromDb();
         data.order = userCart;
         console.log(data);
-        axios.post('http://localhost:5000/orders', data)
+        axios.post('https://ema-john-server-shs.herokuapp.com/orders', data)
             .then(res => {
                 if (res.data.insertedId) {
                     clearTheDd();

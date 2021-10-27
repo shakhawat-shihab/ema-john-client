@@ -9,7 +9,7 @@ function useCart() {
     useEffect(() => {
         const keys = Object.keys(savedProduct);
         console.log(keys);
-        fetch('http://localhost:5000/product/bykey', {
+        fetch('https://ema-john-server-shs.herokuapp.com/product/bykey', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

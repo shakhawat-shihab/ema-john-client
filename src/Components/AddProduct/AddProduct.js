@@ -5,7 +5,7 @@ const AddProduct = () => {
     const { register, handleSubmit, reset } = useForm();
     function onSubmit(data) {
         console.log(data);
-        fetch('http://localhost:5000/addProduct', {
+        fetch('https://ema-john-server-shs.herokuapp.com/addProduct', {
             method: 'post',
             headers: {
                 'content-type': 'application/json'

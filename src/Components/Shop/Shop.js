@@ -23,7 +23,7 @@ const Shop = () => {
     //         })
     // }, []);
     useEffect(() => {
-        fetch(`http://localhost:5000/products?page=${page}&&size=${size}`)
+        fetch(`https://ema-john-server-shs.herokuapp.com/products?page=${page}&&size=${size}`)
             .then(resp => resp.json())
             .then(json => {
                 setProduct(json.products);

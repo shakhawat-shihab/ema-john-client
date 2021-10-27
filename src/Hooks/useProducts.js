@@ -9,7 +9,7 @@ function useProducts() {
     //         .then(json => setProducts(json));
     // }, []);
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://ema-john-server-shs.herokuapp.com/products')
             .then(resp => resp.json())
             .then(json => {
                 setProducts(json.products);
