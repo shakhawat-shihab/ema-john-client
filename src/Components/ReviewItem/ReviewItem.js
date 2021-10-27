@@ -1,8 +1,7 @@
 import React from 'react';
-import Rating from 'react-rating';
 
 const ReviewItem = (props) => {
-    const { name, seller, price, stock, star, starCount, count } = props.data;
+    const { name, seller, price, stock, count } = props.data;
     return (
         <div>
             <div className='row mb-3 py-2 border-bottom m-0'>
@@ -14,7 +13,7 @@ const ReviewItem = (props) => {
                     <p className='text-primary mb-3 fw-bold'>
                         Quantity: {count} Pcs.
                     </p>
-                    <button className='btn btn-warning' onClick={() => { props.eventHandler(props.data.key) }}>
+                    <button className='btn btn-warning text-secondary' onClick={() => { props.eventHandler(props.data.key) }}>
                         Remove From Cart <i className="fas fa-trash-alt ps-2"></i>
                     </button>
                 </div>

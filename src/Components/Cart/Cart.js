@@ -1,10 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './Cart.css';
 
 const Cart = (props) => {
     const cartProduct = props.data;
-    console.log('cart ', cartProduct);
+    // console.log('cart ', cartProduct);
     let orderCount = 0, price = 0, shipping = 0, tax = 0, total = 0;
     for (const element of cartProduct) {
         //console.log(element.count);
@@ -49,9 +48,7 @@ const Cart = (props) => {
                 <tfoot></tfoot>
             </table>
             <div className='mt-3 mb-2'>
-                <Link to='/order-review' >
-                    <button className='btn btn-primary'>Review Order</button>
-                </Link>
+                {props.children}
             </div>
 
 

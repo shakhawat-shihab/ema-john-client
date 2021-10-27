@@ -1,0 +1,8 @@
+.bg-search{
+    background-color: #428bf8;
+    background-image: linear-gradient(#0D6EFD,#5795f1);
+}
+.input-design:focus{
+    outline: none;
+    box-shadow: none;
+}

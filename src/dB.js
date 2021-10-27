@@ -24,7 +24,7 @@ function removeFromDb(id) {
 }
 
 const clearTheDd = () => {
-    localStorage.removeItem('shopping_cart');
+    localStorage.removeItem('shopping-cart');
 }
 
 const getDataFromDb = () => {
